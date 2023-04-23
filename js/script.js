@@ -5,6 +5,7 @@
   });*/
 
 const titleClickHandler = function (event) {
+  const clickedElement = this;
   console.log(event);
   console.log('Link was clicked!');
 
@@ -16,10 +17,13 @@ const titleClickHandler = function (event) {
   }
 
   /* add class 'active' to the clicked link */
+  clickedElement.classList.add('active');
+  console.log('clickedElement:', clickedElement);
 
   /* remove class 'active' from all articles */
   const activeArticles = document.querySelectorAll('.posts article.active')
-  for(let activeArticle of activeArticles){
+
+  for (let activeArticle of activeArticles) {
     activeArticle.classList.remove('active');
   }
 
