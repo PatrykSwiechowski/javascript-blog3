@@ -63,10 +63,10 @@
     const titleList = document.querySelector(optTitleListSelector);
     console.log(titleList);
 
-    function clearMessages() {
+    //function clearMessages() {
       titleList.innerHTML = '';
-    }
-    clearMessages(titleList);
+    //}
+    //clearMessages(titleList);
 
 
 
