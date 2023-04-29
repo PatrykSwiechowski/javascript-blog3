@@ -49,68 +49,68 @@ console.log(links);
 for (let link of links) {
   link.addEventListener('click', titleClickHandler);
 }*/
-(function () {
-  const optArticleSelector = '.post',
-    optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles';
+//(function () {
+const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
 
-  function generateTitleLinks() {
+function generateTitleLinks() {
 
-    /* remove contents of titleList */
+  /* remove contents of titleList */
 
-    const titleList = document.querySelector(optTitleListSelector);
-    console.log(titleList);
+  const titleList = document.querySelector(optTitleListSelector);
+  console.log(titleList);
 
 
-    titleList.innerHTML = '';
+  titleList.innerHTML = '';
 
-    /* for each article */
-    const articles = document.querySelectorAll(optArticleSelector);
-    console.log(articles);
-    let html = '';
-    for (let article of articles) {
-
-      /* get the article id */
-      const articleId = article.getAttribute('id');
-      console.log(articleId);
-
-      /* find the title element */  /* get the title from the title element */
-      const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-      console.log(articleTitle);
-
-      /* create HTML of the link */
-      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-      console.log(linkHTML);
-
-      /* insert link into titleList */
-      html = html + linkHTML;
-
-    }
-    titleList.innerHTML = html;
-    console.log(html);
-
-    const links = document.querySelectorAll('.titles a');
-    console.log(links);
-
-    for (let link of links) {
-      link.addEventListener('click', titleClickHandler);
-    }
-
+  /* for each article */
+  const articles = document.querySelectorAll(optArticleSelector);
+  console.log(articles);
+  let html = '';
+  for (let article of articles) {
 
     /* get the article id */
+    const articleId = article.getAttribute('id');
+    console.log(articleId);
 
-    /* find the title element */
-
-    /* get the title from the title element */
+    /* find the title element */  /* get the title from the title element */
+    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+    console.log(articleTitle);
 
     /* create HTML of the link */
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    console.log(linkHTML);
 
     /* insert link into titleList */
-    // generateTitleLinks();
-  }
-  generateTitleLinks();
+    html = html + linkHTML;
 
-})();
+  }
+  titleList.innerHTML = html;
+  console.log(html);
+
+  const links = document.querySelectorAll('.titles a');
+  console.log(links);
+
+  for (let link of links) {
+    link.addEventListener('click', titleClickHandler);
+  }
+
+
+  /* get the article id */
+
+  /* find the title element */
+
+  /* get the title from the title element */
+
+  /* create HTML of the link */
+
+  /* insert link into titleList */
+  // generateTitleLinks();
+}
+generateTitleLinks();
+
+//}//)();
 
 const optArticleTagsSelector = '.post-tags .list';
 
@@ -170,14 +170,13 @@ function tagClickHandler(event) {
   console.log(event);
 
   /* make a new constant "href" and read the attribute "href" of the clicked element */
-  const href = clickedElement.getAttribute('herf');
+  const href = clickedElement.getAttribute('href');
   console.log('Clicked tag' + href);
 
   /* make a new constant "tag" and extract tag from the "href" constant */
   const tag = href.replace('#tag-', '');
   console.log(tag);
 
-  /* insert HTML of all the links into the tags wrapper */
   /* find all tag links with class active */
   const activeTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
   console.log(activeTagLinks);
@@ -190,30 +189,33 @@ function tagClickHandler(event) {
     console.log(activeTagLink);
     /* END LOOP: for each active tag link */
   }
+  /* find all tag links with "href" attribute equal to the "href" constant */
+  const linksHref = document.querySelectorAll(href);
+  /* START LOOP: for each found tag link */
+  for (let linkHref of linksHref) {
+
+    /* add class active */
+    linkHref.classList.add('active');
+    /* END LOOP: for each found tag link */
+  }
+  /* execute function "generateTitleLinks" with article selector as argument */
+  generateTitleLinks(optArticleSelector);
 }
 
-
-
-
-/* find all tag links with "href" attribute equal to the "href" constant */
-
-/* START LOOP: for each found tag link */
-
-/* add class active */
-
-/* END LOOP: for each found tag link */
-
-/* execute function "generateTitleLinks" with article selector as argument */
-
-
 function addClickListenersToTags() {
+  const clickedElement = this;
+  const href = clickedElement.getAttribute('href');
   /* find all links to tags */
+  const linksTags = document.querySelectorAll('a[href="' + href + '"]');
 
   /* START LOOP: for each link */
+  for (let linkTag of linksTags) {
+    /* add tagClickHandler as event listener for that link */
+    linkTag.addEventListener('click', tagClickHandler);
+    /* END LOOP: for each link */
+  }
 
-  /* add tagClickHandler as event listener for that link */
 
-  /* END LOOP: for each link */
 }
 
 addClickListenersToTags();
