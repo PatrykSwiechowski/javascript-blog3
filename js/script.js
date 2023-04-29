@@ -208,7 +208,7 @@ function addClickListenersToTags() {
   //const clickedElement = this;
   //const href = clickedElement.getAttribute('href');
   /* find all links to tags */
-  const linksTags = document.querySelectorAll('.post tags');
+  const linksTags = document.querySelectorAll('[href^="#tag-"]');
 
   /* START LOOP: for each link */
   for (let linkTag of linksTags) {
