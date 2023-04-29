@@ -54,7 +54,7 @@ const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
 
-function generateTitleLinks() {
+function generateTitleLinks(customSelector = '') {
 
   /* remove contents of titleList */
 
@@ -65,7 +65,8 @@ function generateTitleLinks() {
   titleList.innerHTML = '';
 
   /* for each article */
-  const articles = document.querySelectorAll(optArticleSelector);
+  const articles = document.querySelectorAll(optArticleSelector + customSelector);
+  console.log(customSelector);
   console.log(articles);
   let html = '';
   for (let article of articles) {
@@ -190,7 +191,7 @@ function tagClickHandler(event) {
     /* END LOOP: for each active tag link */
   }
   /* find all tag links with "href" attribute equal to the "href" constant */
-  const linksHref = document.querySelectorAll(href);
+  const linksHref = document.querySelectorAll('a[href="' + href + '"]');
   /* START LOOP: for each found tag link */
   for (let linkHref of linksHref) {
 
@@ -199,14 +200,15 @@ function tagClickHandler(event) {
     /* END LOOP: for each found tag link */
   }
   /* execute function "generateTitleLinks" with article selector as argument */
-  generateTitleLinks(optArticleSelector);
+  //generateTitleLinks(optArticleSelector);
+  generateTitleLinks('[data-tags~="' + tag + '"]');
 }
 
 function addClickListenersToTags() {
-  const clickedElement = this;
-  const href = clickedElement.getAttribute('href');
+  //const clickedElement = this;
+  //const href = clickedElement.getAttribute('href');
   /* find all links to tags */
-  const linksTags = document.querySelectorAll('a[href="' + href + '"]');
+  const linksTags = document.querySelectorAll('.post tags');
 
   /* START LOOP: for each link */
   for (let linkTag of linksTags) {
@@ -219,5 +221,7 @@ function addClickListenersToTags() {
 }
 
 addClickListenersToTags();
+
+
 
 
