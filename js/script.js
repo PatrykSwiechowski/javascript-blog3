@@ -232,7 +232,7 @@ function generateAuthors() {
     console.log(wrapperAuthorTag);
     const dataAuthor = article.getAttribute('data-author');
     console.log(dataAuthor);
-    const authorHTML = wrapperAuthorTag.querySelectorAll = '<li><a href= "#author-' + dataAuthor + '>' + dataAuthor + '"</a></li>';
+    const authorHTML = wrapperAuthorTag.querySelectorAll = '<li><a href= "#author-' + dataAuthor + '">' + dataAuthor + '</a></li>';
     wrapperAuthorTag.innerHTML = authorHTML;
     console.log(authorHTML);
 
