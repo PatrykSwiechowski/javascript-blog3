@@ -63,7 +63,12 @@ body {
   border: 1px solid $color-dark;
   border-radius: 5px;
 }
-
+.sidebar .list .tag-size-6{
+  font-size: 10px;
+  color: blue;
+  display: inline;
+  
+}
 /* Logo */
 
 .logo {
