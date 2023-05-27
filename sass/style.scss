@@ -42,7 +42,15 @@ body {
 }
 
 /* Layout */
-
+.sidebar .list .tag-size-6{
+  font-size: 100%;
+}
+.sidebar .list .tag-size-4{
+  font-size: 60%;
+}
+.sidebar .list .tag-size-1{
+  font-size: 30%;
+}
 .wrapper {
   display: flex;
   margin-left: 10px;
@@ -80,6 +88,10 @@ body {
 }
 
 /* Lists */
+.list.tags{
+  display: inline;
+
+}
 
 .list {
   list-style-type: none;
