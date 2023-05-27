@@ -244,7 +244,6 @@ function generateAuthors() {
     console.log(authorWrapper);
     let html = '';
     const authorTags = article.getAttribute('data-author');
-    let allAuthors = { authorTags };
     console.log(allAuthors);
     const authorHtml = '<li><a href= "#author-' + authorTags + '">' + authorTags + '</a></li>';
     console.log(authorHtml);
@@ -265,7 +264,7 @@ function generateAuthors() {
   /* [NEW] create variable for all links HTML code */
   let allAuthorsLink = '';
   for (let authorTags in allAuthors) {
-    const authorLinkHtml = '<li><a href = "#author-' + authorTags + '><span class = "author-name"' + ">" + authorTags + '(' + allAuthors[authorTags] + ') </span>';
+    const authorLinkHtml = '<li><a href="#author-' + authorTags + '"><span class="author-name">' + authorTags + '(' + allAuthors[authorTags] + ')</span>';
     allAuthorsLink += authorLinkHtml;
     console.log(authorLinkHtml);
   }
