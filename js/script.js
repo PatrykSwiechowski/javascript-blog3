@@ -14,7 +14,7 @@ const titleClickHandler = function (event) {
   /* remove class 'active' from all article links  */
   const activeLinks = document.querySelectorAll('.titles a.active');
   for (let activeLink of activeLinks) {
-    activeLink.classList.remove('active')
+    activeLink.classList.remove('active');
   }
   /* add class 'active' to the clicked link */
   clickedLink.classList.add('active');
@@ -33,7 +33,7 @@ const titleClickHandler = function (event) {
   /* add class 'active' to the correct article */
   article.classList.add('active');
 
-}
+};
 
 
 
@@ -101,19 +101,6 @@ function calculateTagsParams(tags) {
 
 function calculateTagClass(count, params) {
   let classNumber = Math.floor(0.5 * 5 + 1);
-
-  classNumber = Math.floor(0.5 * optCloudClassCount + 1);
-
-  classNumber = Math.floor((4 / 8) * optCloudClassCount + 1);
-
-  classNumber = Math.floor(((6 - 2) / (10 - 2)) * optCloudClassCount + 1);
-
-  classNumber = Math.floor(((count - 2) / (10 - 2)) * optCloudClassCount + 1);
-
-  classNumber = Math.floor(((count - 2) / (params.max - 2)) * optCloudClassCount + 1);
-
-  classNumber = Math.floor(((count - params.min) / (params.max - 2)) * optCloudClassCount + 1);
-
   classNumber = Math.floor(((count - params.min) / (params.max - params.min)) * optCloudClassCount + 1);
   return optCloudClassPrefix + classNumber;
 
@@ -141,7 +128,7 @@ function generateTags() {
     for (let tag of articleTagsArray) {
       console.log(tag);
       /* generate HTML of the link */
-      const tagHtml = '<li><a href=#tag-' + tag + ">" + tag + "</a></li >";
+      const tagHtml = '<li><a href=#tag-' + tag + '>' + tag + '</a></li >';
       console.log(tagHtml);
       /* add generated code to html variable */
       html = html + tagHtml;
@@ -165,7 +152,7 @@ function generateTags() {
   const tagList = document.querySelector(optTagsListSelector);
   /* obliczanie parametrów*/
   const tagsParams = calculateTagsParams(allTags);
-  console.log('tagsParams:', tagsParams)
+  console.log('tagsParams:', tagsParams);
   /* [NEW] create variable for all links HTML code */
   let allTagsHTML = '';
 
@@ -298,7 +285,7 @@ function authorClickHandler(event) {
 }
 
 function addClickListenersToAuthors() {
-  const authorLinks = document.querySelectorAll('[href^="#author-"]')
+  const authorLinks = document.querySelectorAll('[href^="#author-"]');
   for (let authorLink of authorLinks) {
     authorLink.addEventListener('click', authorClickHandler);
   }
