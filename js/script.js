@@ -6,8 +6,9 @@ const templates = {
   tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
   authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
   tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
-  authorRightLink: Handlebars.compile(document.querySelector('#template-author-right-link').innerHTML),
-}
+  authorRightLink: Handlebars.compile(document.querySelector('#template-author-right-link').innerHTML)
+  
+};
 
 
 const titleClickHandler = function (event) {
@@ -279,7 +280,6 @@ function generateAuthors() {
       count: allAuthors[authorTags]
     });
   }
-  console.log(allAuthorsLink);
   //authorList.innerHTML = allAuthorsLink;
   authorList.innerHTML = templates.authorRightLink(allAuthorsData);
 
